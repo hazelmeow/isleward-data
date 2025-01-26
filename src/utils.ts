@@ -1,5 +1,6 @@
 import { Lang, parseAsync } from "@ast-grep/napi";
 import assert from "assert";
+import { createHash } from "crypto";
 import JSON5 from "json5";
 
 export const astGrep = async (src: string, pattern: string) => {
@@ -46,4 +47,14 @@ export const deepMerge = (target: any, ...sources: any[]): any => {
   }
 
   return deepMerge(target, ...sources);
+};
+
+export const sha256sum = (s: string): string => {
+  return createHash("sha256").update(s, "utf8").digest("hex");
+};
+
+export const assertReplaceAll = (src: string, a: string, b: string): string => {
+  const replaced = src.replaceAll(a, b);
+  assert(src !== replaced, "nothing was replaced");
+  return replaced;
 };
