@@ -2,6 +2,7 @@ import JSON5 from "json5";
 import type { Output } from ".";
 import { getSourceFile } from "../files";
 import { astGrep, containsDuplicateKeys } from "../utils";
+import { curatedSpellsConfig } from "../../curated/spellsConfig";
 
 const serverSpellsConfig = async () => {
   const src = await getSourceFile(
@@ -37,6 +38,7 @@ export default {
     const configs = await Promise.all([
       serverSpellsConfig(),
       modNecromancerSpellsConfig(),
+      curatedSpellsConfig,
     ]);
 
     if (containsDuplicateKeys(configs)) throw new Error("duplicate keys");
