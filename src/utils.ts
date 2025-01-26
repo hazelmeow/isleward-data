@@ -20,3 +20,30 @@ export const containsDuplicateKeys = (objects: object[]) => {
   const uniqueKeys = allKeys.filter((k, i, a) => a.indexOf(k) === i);
   return uniqueKeys.length < allKeys.length;
 };
+
+const isObject = (item: any) => {
+  return item && typeof item === "object" && !Array.isArray(item);
+};
+/**
+ * Merges objects without overwriting keys
+ */
+export const deepMerge = (target: any, ...sources: any[]): any => {
+  if (!sources.length) return target;
+  const source = sources.shift();
+
+  if (isObject(target) && isObject(source)) {
+    for (const key in source) {
+      if (isObject(source[key])) {
+        if (!target[key]) Object.assign(target, { [key]: {} });
+        deepMerge(target[key], source[key]);
+      } else {
+        if (target[key] !== undefined && !isObject(target[key])) {
+          throw new Error("deep merge refusing to overwrite");
+        }
+        Object.assign(target, { [key]: source[key] });
+      }
+    }
+  }
+
+  return deepMerge(target, ...sources);
+};
