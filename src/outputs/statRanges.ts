@@ -2,8 +2,8 @@ import assert from "assert";
 import JSON5 from "json5";
 import { z } from "zod";
 import type { Output } from ".";
-import { getSourceFile } from "../files";
-import { assertReplaceAll, astGrep, sha256sum } from "../utils";
+import { getSourceFile } from "../utils/files";
+import { assertReplaceAll, astGrep, sha256sum } from "../utils/utils";
 
 const serverBalanceSchema = z.object({
   maxLevel: z.number(),

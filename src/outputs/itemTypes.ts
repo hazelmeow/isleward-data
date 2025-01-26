@@ -1,8 +1,8 @@
 import JSON5 from "json5";
 import { z } from "zod";
 import type { Output } from ".";
-import { getSourceFile } from "../files";
-import { astGrep, deepMerge } from "../utils";
+import { getSourceFile } from "../utils/files";
+import { astGrep, deepMerge } from "../utils/utils";
 
 const armorMaterialsSchema = z.object({
   plate: z.object({

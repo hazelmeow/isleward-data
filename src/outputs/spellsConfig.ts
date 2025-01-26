@@ -1,7 +1,7 @@
 import JSON5 from "json5";
 import type { Output } from ".";
-import { getSourceFile } from "../files";
-import { astGrep, containsDuplicateKeys } from "../utils";
+import { getSourceFile } from "../utils/files";
+import { astGrep, containsDuplicateKeys } from "../utils/utils";
 import { curatedSpellsConfig } from "../../curated/spellsConfig";
 
 const serverSpellsConfig = async () => {

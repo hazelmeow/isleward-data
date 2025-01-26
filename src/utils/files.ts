@@ -1,6 +1,6 @@
 import $ from "dax-sh";
 import fs from "fs/promises";
-import type { Output } from "./outputs";
+import type { Output } from "../outputs";
 
 export type Repo = {
   key: string;
