@@ -4,19 +4,30 @@
   "private": true,
   "packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf",
   "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "generate": "tsx src/scripts/generate.ts",
     "dev": "tsx --watch src/scripts/generate.ts",
+    "test": "vitest --config vitest.config.ts",
+    "build": "tsx src/scripts/build.ts && tsup build/index.ts"
   },
   "dependencies": {
     "@ast-grep/napi": "^0.33.1",
     "dax-sh": "^0.42.0",
     "json5": "^2.2.3",
-    "zod": "^3.24.1"
+    "zod": "^3.24.1",
+    "zod-to-ts": "^1.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.10",
+    "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
+  },
+  "tsup": {
+    "format": "esm",
+    "dts": true
   }
 }

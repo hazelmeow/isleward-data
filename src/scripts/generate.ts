@@ -1,6 +1,6 @@
 import $ from "dax-sh";
-import { checkoutRepo, generateOutput, makeDirs, REPOS } from "../utils/files";
 import { OUTPUTS } from "../outputs";
+import { checkoutRepo, generateOutput, makeDirs, REPOS } from "../utils/files";
 
 $.setPrintCommand(true);
 
