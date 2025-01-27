@@ -13,20 +13,19 @@
     "build": "tsx src/scripts/build.ts && tsup build/index.ts",
     "prepare": "pnpm build"
   },
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "@ast-grep/napi": "^0.33.1",
+    "@types/node": "^22.10.10",
     "dax-sh": "^0.42.0",
     "isleward-types": "github:hazelmeow/isleward-types",
     "json5": "^2.2.3",
-    "zod": "^3.24.1",
-    "zod-to-ts": "^1.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "^22.10.10",
     "tsup": "^8.3.6",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "zod-to-ts": "^1.2.0",
+    "zod": "^3.24.1"
   },
   "tsup": {
     "format": "esm",
