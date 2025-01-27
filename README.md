@@ -15,5 +15,12 @@ Generated files can be found under `generated/`.
 
 Manually curated data found under `curated/` also needs to be kept up to date.
 
+## Todo
+* Replace `eval` with `node:vm`
+* Document reproducible steps or evidence for curated data
+* Wiki integration?
+* Better error handling?
+* Support bisecting repo histories when matching source fails?
+
 ## License
 MIT.
