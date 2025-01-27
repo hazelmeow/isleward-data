@@ -10,7 +10,8 @@
     "generate": "tsx src/scripts/generate.ts",
     "dev": "tsx --watch src/scripts/generate.ts",
     "test": "vitest --config vitest.config.ts",
-    "build": "tsx src/scripts/build.ts && tsup build/index.ts"
+    "build": "tsx src/scripts/build.ts && tsup build/index.ts",
+    "prepare": "pnpm build"
   },
   "dependencies": {
     "@ast-grep/napi": "^0.33.1",
