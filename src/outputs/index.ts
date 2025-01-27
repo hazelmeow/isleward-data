@@ -3,12 +3,14 @@ import baseStats from "./baseStats";
 import itemTypes from "./itemTypes";
 import spellsConfig from "./spellsConfig";
 import statRanges from "./statRanges";
+import statScales from "./statScales";
 
 export const OUTPUTS: Output<any>[] = [
   baseStats,
   itemTypes,
   spellsConfig,
   statRanges,
+  statScales,
 ];
 
 export type Output<T> = {
