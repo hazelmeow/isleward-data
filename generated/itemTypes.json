@@ -112,11 +112,11 @@
             }
         },
         "Robe": {
-            "material": "cloth",
             "sprite": [
                 2,
                 1
             ],
+            "material": "cloth",
             "implicitStat": {
                 "stat": "armor",
                 "valueMult": 0.13999999999999999
@@ -158,11 +158,11 @@
             }
         },
         "Gloves": {
-            "material": "cloth",
             "sprite": [
                 3,
                 1
             ],
+            "material": "cloth",
             "implicitStat": {
                 "stat": "armor",
                 "valueMult": 0.034999999999999996
@@ -247,11 +247,11 @@
     },
     "waist": {
         "Belt": {
-            "material": "plate",
             "sprite": [
                 5,
                 0
             ],
+            "material": "plate",
             "implicitStat": {
                 "stat": "armor",
                 "value": [
@@ -261,11 +261,11 @@
             }
         },
         "Sash": {
-            "material": "cloth",
             "sprite": [
                 5,
                 1
             ],
+            "material": "cloth",
             "implicitStat": {
                 "stat": "manaMax",
                 "value": [
@@ -275,11 +275,11 @@
             }
         },
         "Leather Belt": {
-            "material": "leather",
             "sprite": [
                 5,
                 2
             ],
+            "material": "leather",
             "implicitStat": {
                 "stat": "addCritChance",
                 "value": [
@@ -289,11 +289,11 @@
             }
         },
         "Scaled Binding": {
-            "material": "leather",
             "sprite": [
                 5,
                 3
             ],
+            "material": "leather",
             "implicitStat": {
                 "stat": "vit",
                 "value": [
@@ -305,22 +305,22 @@
     },
     "legs": {
         "Legplates": {
-            "material": "plate",
             "sprite": [
                 6,
                 0
             ],
+            "material": "plate",
             "implicitStat": {
                 "stat": "armor",
                 "valueMult": 0.2
             }
         },
         "Pants": {
-            "material": "cloth",
             "sprite": [
                 6,
                 1
             ],
+            "material": "cloth",
             "implicitStat": {
                 "stat": "armor",
                 "valueMult": 0.06999999999999999
@@ -351,44 +351,44 @@
     },
     "feet": {
         "Steel Boots": {
-            "material": "plate",
             "sprite": [
                 7,
                 0
             ],
+            "material": "plate",
             "implicitStat": {
                 "stat": "armor",
                 "valueMult": 0.1
             }
         },
         "Boots": {
-            "material": "cloth",
             "sprite": [
                 7,
                 1
             ],
+            "material": "cloth",
             "implicitStat": {
                 "stat": "armor",
                 "valueMult": 0.034999999999999996
             }
         },
         "Leather Boots": {
-            "material": "leather",
             "sprite": [
                 7,
                 2
             ],
+            "material": "leather",
             "implicitStat": {
                 "stat": "armor",
                 "valueMult": 0.06
             }
         },
         "Scale Boots": {
-            "material": "leather",
             "sprite": [
                 7,
                 3
             ],
+            "material": "leather",
             "implicitStat": {
                 "stat": "armor",
                 "valueMult": 0.06
@@ -464,11 +464,18 @@
     },
     "oneHanded": {
         "Sword": {
-            "attrRequire": "str",
             "sprite": [
                 9,
                 0
             ],
+            "implicitStat": {
+                "stat": "attackSpeed",
+                "value": [
+                    1,
+                    5
+                ]
+            },
+            "attrRequire": "str",
             "spellName": "melee",
             "spellConfig": {
                 "statType": "str",
@@ -482,17 +489,9 @@
                         15
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "attackSpeed",
-                "value": [
-                    1,
-                    5
-                ]
             }
         },
         "Curved Dagger": {
-            "noDrop": true,
             "attrRequire": [
                 "dex"
             ],
@@ -508,14 +507,22 @@
                         9
                     ]
                 }
-            }
+            },
+            "noDrop": true
         },
         "Dagger": {
-            "attrRequire": "dex",
             "sprite": [
                 9,
                 2
             ],
+            "implicitStat": {
+                "stat": "addAttackCritChance",
+                "value": [
+                    10,
+                    50
+                ]
+            },
+            "attrRequire": "dex",
             "spellName": "melee",
             "spellConfig": {
                 "statType": "dex",
@@ -528,21 +535,21 @@
                         9
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "addAttackCritChance",
-                "value": [
-                    10,
-                    50
-                ]
             }
         },
         "Wand": {
-            "attrRequire": "int",
             "sprite": [
                 9,
                 8
             ],
+            "implicitStat": {
+                "stat": "castSpeed",
+                "value": [
+                    1,
+                    5
+                ]
+            },
+            "attrRequire": "int",
             "spellName": "projectile",
             "spellConfig": {
                 "statType": "int",
@@ -557,25 +564,26 @@
                         12
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "castSpeed",
-                "value": [
-                    1,
-                    5
-                ]
             }
         },
         "Sickle": {
-            "spritesheet": "server/mods/class-necromancer/images/items.png",
             "sprite": [
                 0,
                 0
             ],
-            "spellName": "melee",
+            "implicitStat": {
+                "stat": "lifeOnHit",
+                "value": [
+                    1,
+                    5
+                ],
+                "levelMult": 4
+            },
             "attrRequire": [
                 "int"
             ],
+            "spritesheet": "server/mods/class-necromancer/images/items.png",
+            "spellName": "melee",
             "spellConfig": {
                 "statType": [
                     "str",
@@ -590,26 +598,26 @@
                         10.4
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "lifeOnHit",
-                "value": [
-                    1,
-                    5
-                ],
-                "levelMult": 4
             }
         },
         "Jade Sickle": {
-            "spritesheet": "server/mods/class-necromancer/images/items.png",
             "sprite": [
                 1,
                 0
             ],
-            "spellName": "melee",
+            "implicitStat": {
+                "stat": "lifeOnHit",
+                "value": [
+                    1,
+                    5
+                ],
+                "levelMult": 4
+            },
             "attrRequire": [
                 "int"
             ],
+            "spritesheet": "server/mods/class-necromancer/images/items.png",
+            "spellName": "melee",
             "spellConfig": {
                 "statType": [
                     "str",
@@ -624,26 +632,26 @@
                         10.4
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "lifeOnHit",
-                "value": [
-                    1,
-                    5
-                ],
-                "levelMult": 4
             }
         },
         "Golden Sickle": {
-            "spritesheet": "server/mods/class-necromancer/images/items.png",
             "sprite": [
                 2,
                 0
             ],
-            "spellName": "melee",
+            "implicitStat": {
+                "stat": "lifeOnHit",
+                "value": [
+                    1,
+                    5
+                ],
+                "levelMult": 4
+            },
             "attrRequire": [
                 "int"
             ],
+            "spritesheet": "server/mods/class-necromancer/images/items.png",
+            "spellName": "melee",
             "spellConfig": {
                 "statType": [
                     "str",
@@ -658,26 +666,26 @@
                         10.4
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "lifeOnHit",
-                "value": [
-                    1,
-                    5
-                ],
-                "levelMult": 4
             }
         },
         "Bone Sickle": {
-            "spritesheet": "server/mods/class-necromancer/images/items.png",
             "sprite": [
                 3,
                 0
             ],
-            "spellName": "melee",
+            "implicitStat": {
+                "stat": "lifeOnHit",
+                "value": [
+                    1,
+                    5
+                ],
+                "levelMult": 4
+            },
             "attrRequire": [
                 "int"
             ],
+            "spritesheet": "server/mods/class-necromancer/images/items.png",
+            "spellName": "melee",
             "spellConfig": {
                 "statType": [
                     "str",
@@ -692,24 +700,23 @@
                         10.4
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "lifeOnHit",
-                "value": [
-                    1,
-                    5
-                ],
-                "levelMult": 4
             }
         }
     },
     "twoHanded": {
         "Axe": {
-            "attrRequire": "str",
             "sprite": [
                 9,
                 3
             ],
+            "implicitStat": {
+                "stat": "addAttackCritMultiplier",
+                "value": [
+                    10,
+                    30
+                ]
+            },
+            "attrRequire": "str",
             "spellName": "melee",
             "spellConfig": {
                 "statType": "str",
@@ -723,21 +730,21 @@
                         27
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "addAttackCritMultiplier",
-                "value": [
-                    10,
-                    30
-                ]
             }
         },
         "Gnarled Staff": {
-            "attrRequire": "int",
             "sprite": [
                 9,
                 1
             ],
+            "implicitStat": {
+                "stat": "regenMana",
+                "value": [
+                    3,
+                    9
+                ]
+            },
+            "attrRequire": "int",
             "spellName": "projectile",
             "spellConfig": {
                 "statType": "int",
@@ -753,23 +760,22 @@
                         16.8
                     ]
                 }
-            },
-            "implicitStat": {
-                "stat": "regenMana",
-                "value": [
-                    3,
-                    9
-                ]
             }
         },
         "Spear": {
-            "attrRequire": "dex",
             "sprite": [
                 9,
                 6
             ],
+            "implicitStat": {
+                "stat": "dodgeAttackChance",
+                "value": [
+                    1,
+                    7
+                ]
+            },
+            "attrRequire": "dex",
             "spellName": "melee",
-            "range": 2,
             "spellConfig": {
                 "statType": "dex",
                 "threatMult": 4,
@@ -783,18 +789,11 @@
                     ]
                 }
             },
-            "implicitStat": {
-                "stat": "dodgeAttackChance",
-                "value": [
-                    1,
-                    7
-                ]
-            }
+            "range": 2
         }
     },
     "offHand": {
         "Wooden Shield": {
-            "attrRequire": "str",
             "sprite": [
                 13,
                 0
@@ -808,10 +807,10 @@
                     "stat": "blockAttackChance",
                     "valueMult": 1
                 }
-            ]
+            ],
+            "attrRequire": "str"
         },
         "Gilded Shield": {
-            "attrRequire": "str",
             "sprite": [
                 13,
                 1
@@ -825,10 +824,10 @@
                     "stat": "blockAttackChance",
                     "valueMult": 0.5
                 }
-            ]
+            ],
+            "attrRequire": "str"
         },
         "Brittle Tome": {
-            "attrRequire": "int",
             "sprite": [
                 13,
                 2
@@ -839,10 +838,10 @@
                     10,
                     50
                 ]
-            }
+            },
+            "attrRequire": "int"
         },
         "Ancient Tome": {
-            "attrRequire": "int",
             "sprite": [
                 13,
                 3
@@ -853,7 +852,8 @@
                     10,
                     30
                 ]
-            }
+            },
+            "attrRequire": "int"
         }
     },
     "tool": {

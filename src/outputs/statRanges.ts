@@ -5,6 +5,17 @@ import type { Output } from ".";
 import { getSourceFile } from "../utils/files";
 import { assertReplaceAll, astGrep, sha256sum } from "../utils/utils";
 
+const statRangesSchema = z.record(
+  z.string(),
+  z.object({
+    range: z.array(z.tuple([z.number(), z.number()])),
+    range2h: z.array(z.tuple([z.number(), z.number()])),
+    level: z.object({ min: z.number() }).optional(),
+    slots: z.array(z.string()).optional(),
+  })
+);
+type StatRanges = z.infer<typeof statRangesSchema>;
+
 const serverBalanceSchema = z.object({
   maxLevel: z.number(),
   dmgMults: z.array(z.number()),
@@ -43,11 +54,11 @@ const getItemStatBalance = async () => {
     "repo:isleward-upstream/src/server/items/generators/stats/itemStatBalance.js"
   );
   const obj = await astGrep(src, "const itemStatBalance = $X");
-  const evaled = eval("(" + obj + ")");
+  const evaled = eval("(" + obj + ")") as unknown;
   return itemStatBalanceSchema.parse(evaled);
 };
 
-const getStatRanges = async () => {
+const getStatRanges = async (): Promise<StatRanges> => {
   const serverBalance = await getServerBalance();
   const itemStatBalance = await getItemStatBalance();
   const randomCode = await getRandomCode();
@@ -94,14 +105,14 @@ const getStatRanges = async () => {
         return [
           genStat(stat, "oneHanded", level, 0),
           genStat(stat, "oneHanded", level, 1),
-        ];
+        ] satisfies [number, number];
       });
       const range2h = new Array(serverBalance.maxLevel).fill(0).map((_, i) => {
         const level = i + 1;
         return [
           genStat(stat, "twoHanded", level, 0),
           genStat(stat, "twoHanded", level, 1),
-        ];
+        ] satisfies [number, number];
       });
 
       const statBlueprint = itemStatBalance[stat];
@@ -166,9 +177,12 @@ const getRandomCode = async () => {
 };
 
 export default {
-  key: "statRanges.json",
+  key: "statRanges",
+  schema: statRangesSchema,
   get: async () => {
-    const statRanges = await getStatRanges();
-    return JSON.stringify(statRanges);
+    return await getStatRanges();
   },
-} satisfies Output;
+  print: (val) => {
+    return JSON.stringify(val);
+  },
+} satisfies Output<StatRanges>;

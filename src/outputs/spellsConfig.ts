@@ -1,19 +1,47 @@
 import JSON5 from "json5";
+import { z } from "zod";
 import type { Output } from ".";
+import { curatedSpellsConfig } from "../../curated/spellsConfig";
 import { getSourceFile } from "../utils/files";
 import { astGrep, containsDuplicateKeys } from "../utils/utils";
-import { curatedSpellsConfig } from "../../curated/spellsConfig";
 
-const serverSpellsConfig = async () => {
+const spellsConfigSchema = z.record(
+  z.string(),
+  z
+    .object({
+      auto: z.boolean(),
+      cdMax: z.number(),
+      castTimeMax: z.number(),
+      useWeaponRange: z.boolean(),
+      random: z.record(z.string(), z.tuple([z.number(), z.number()])),
+      manaCost: z.number(),
+      range: z.number(),
+      statType: z.string().or(z.array(z.string())),
+      element: z.string(),
+      radius: z.number(),
+      threatMult: z.number(),
+      needLos: z.boolean(),
+      isAttack: z.boolean(),
+      negativeStats: z.array(z.string()),
+      manaReserve: z.object({ percentage: z.number() }),
+      auraRange: z.number(),
+      effect: z.string(),
+    })
+    .partial()
+    .strict()
+);
+type SpellsConfig = z.infer<typeof spellsConfigSchema>;
+
+const serverSpellsConfig = async (): Promise<SpellsConfig> => {
   const src = await getSourceFile(
     "repo:isleward-upstream/src/server/config/spellsConfig.js"
   );
 
   const val = await astGrep(src, "let spells = $X");
-  return JSON5.parse(val);
+  return spellsConfigSchema.parse(JSON5.parse(val));
 };
 
-const modNecromancerSpellsConfig = async () => {
+const modNecromancerSpellsConfig = async (): Promise<SpellsConfig> => {
   const src = await getSourceFile(
     "repo:isleward-upstream/src/server/mods/class-necromancer/index.js"
   );
@@ -33,7 +61,8 @@ const modNecromancerSpellsConfig = async () => {
 };
 
 export default {
-  key: "spellsConfig.json",
+  key: "spellsConfig",
+  schema: spellsConfigSchema,
   get: async () => {
     const configs = await Promise.all([
       serverSpellsConfig(),
@@ -44,6 +73,9 @@ export default {
     if (containsDuplicateKeys(configs)) throw new Error("duplicate keys");
 
     const merged = Object.assign({}, ...configs);
-    return JSON.stringify(merged, null, 4);
+    return merged;
   },
-} satisfies Output;
+  print: (val) => {
+    return JSON.stringify(val, null, 4);
+  },
+} satisfies Output<SpellsConfig>;

@@ -22,8 +22,8 @@ export const containsDuplicateKeys = (objects: object[]) => {
   return uniqueKeys.length < allKeys.length;
 };
 
-const isObject = (item: any) => {
-  return item && typeof item === "object" && !Array.isArray(item);
+const isObject = (item: unknown) => {
+  return !!item && typeof item === "object" && !Array.isArray(item);
 };
 /**
  * Merges objects without overwriting keys

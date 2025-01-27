@@ -15,36 +15,32 @@
         "auto": true,
         "cdMax": 10,
         "castTimeMax": 0,
-        "manaCost": 0,
-        "range": 9,
         "random": {
             "damage": [
                 2,
                 7.2
             ]
-        }
+        },
+        "manaCost": 0,
+        "range": 9
     },
     "magic missile": {
-        "statType": "int",
-        "element": "arcane",
         "cdMax": 7,
         "castTimeMax": 6,
-        "manaCost": 5,
-        "range": 9,
         "random": {
             "damage": [
                 4,
                 74
             ]
-        }
+        },
+        "manaCost": 5,
+        "range": 9,
+        "statType": "int",
+        "element": "arcane"
     },
     "ice spear": {
-        "statType": "int",
-        "element": "frost",
         "cdMax": 10,
         "castTimeMax": 2,
-        "manaCost": 4,
-        "range": 9,
         "random": {
             "damage": [
                 2,
@@ -54,14 +50,15 @@
                 6,
                 10
             ]
-        }
+        },
+        "manaCost": 4,
+        "range": 9,
+        "statType": "int",
+        "element": "frost"
     },
     "fireblast": {
-        "statType": "int",
-        "element": "fire",
         "cdMax": 4,
         "castTimeMax": 2,
-        "manaCost": 5,
         "random": {
             "damage": [
                 2,
@@ -75,15 +72,14 @@
                 2,
                 5
             ]
-        }
+        },
+        "manaCost": 5,
+        "statType": "int",
+        "element": "fire"
     },
     "smite": {
-        "statType": "int",
-        "element": "holy",
         "cdMax": 6,
         "castTimeMax": 3,
-        "range": 9,
-        "manaCost": 7,
         "random": {
             "damage": [
                 4,
@@ -93,16 +89,15 @@
                 6,
                 10
             ]
-        }
+        },
+        "manaCost": 7,
+        "range": 9,
+        "statType": "int",
+        "element": "holy"
     },
     "consecrate": {
-        "statType": "int",
-        "element": "holy",
         "cdMax": 15,
         "castTimeMax": 4,
-        "manaCost": 12,
-        "range": 9,
-        "radius": 3,
         "random": {
             "healing": [
                 0.3,
@@ -112,43 +107,44 @@
                 7,
                 12
             ]
-        }
-    },
-    "healing touch": {
+        },
+        "manaCost": 12,
+        "range": 9,
         "statType": "int",
         "element": "holy",
+        "radius": 3
+    },
+    "healing touch": {
         "cdMax": 6,
         "castTimeMax": 4,
-        "manaCost": 8,
-        "range": 9,
         "random": {
             "healing": [
                 1,
                 3.5
             ]
-        }
+        },
+        "manaCost": 8,
+        "range": 9,
+        "statType": "int",
+        "element": "holy"
     },
     "slash": {
-        "statType": "str",
-        "threatMult": 4,
         "cdMax": 9,
         "castTimeMax": 1,
-        "manaCost": 4,
         "useWeaponRange": true,
         "random": {
             "damage": [
                 1,
                 57
             ]
-        }
+        },
+        "manaCost": 4,
+        "statType": "str",
+        "threatMult": 4
     },
     "charge": {
-        "statType": "str",
-        "threatMult": 3,
         "cdMax": 14,
         "castTimeMax": 1,
-        "range": 10,
-        "manaCost": 3,
         "random": {
             "damage": [
                 2,
@@ -158,13 +154,15 @@
                 6,
                 10
             ]
-        }
+        },
+        "manaCost": 3,
+        "range": 10,
+        "statType": "str",
+        "threatMult": 3
     },
     "flurry": {
-        "statType": "dex",
         "cdMax": 20,
         "castTimeMax": 0,
-        "manaCost": 10,
         "random": {
             "i_duration": [
                 10,
@@ -174,14 +172,13 @@
                 30,
                 60
             ]
-        }
+        },
+        "manaCost": 10,
+        "statType": "dex"
     },
     "whirlwind": {
-        "statType": "str",
-        "threatMult": 6,
         "cdMax": 12,
         "castTimeMax": 2,
-        "manaCost": 7,
         "random": {
             "i_range": [
                 1,
@@ -191,14 +188,14 @@
                 4,
                 59
             ]
-        }
+        },
+        "manaCost": 7,
+        "statType": "str",
+        "threatMult": 6
     },
     "smokebomb": {
-        "statType": "dex",
-        "element": "poison",
         "cdMax": 7,
         "castTimeMax": 0,
-        "manaCost": 6,
         "random": {
             "damage": [
                 0.25,
@@ -212,14 +209,14 @@
                 7,
                 13
             ]
-        }
+        },
+        "manaCost": 6,
+        "statType": "dex",
+        "element": "poison"
     },
     "ambush": {
-        "statType": "dex",
         "cdMax": 15,
         "castTimeMax": 3,
-        "range": 10,
-        "manaCost": 7,
         "random": {
             "damage": [
                 8,
@@ -229,19 +226,14 @@
                 4,
                 7
             ]
-        }
+        },
+        "manaCost": 7,
+        "range": 10,
+        "statType": "dex"
     },
     "crystal spikes": {
-        "statType": [
-            "dex",
-            "int"
-        ],
-        "manaCost": 14,
-        "needLos": true,
         "cdMax": 15,
         "castTimeMax": 0,
-        "range": 9,
-        "isAttack": true,
         "random": {
             "damage": [
                 3,
@@ -252,29 +244,45 @@
                 4
             ]
         },
+        "manaCost": 14,
+        "range": 9,
+        "statType": [
+            "dex",
+            "int"
+        ],
+        "needLos": true,
+        "isAttack": true,
         "negativeStats": [
             "i_delay"
         ]
     },
     "innervation": {
+        "cdMax": 10,
+        "castTimeMax": 0,
+        "random": {
+            "regenPercentage": [
+                0.2,
+                0.8
+            ]
+        },
         "statType": [
             "str"
         ],
         "manaReserve": {
             "percentage": 0.25
         },
-        "cdMax": 10,
-        "castTimeMax": 0,
         "auraRange": 9,
-        "effect": "regenHp",
-        "random": {
-            "regenPercentage": [
-                0.2,
-                0.8
-            ]
-        }
+        "effect": "regenHp"
     },
     "tranquility": {
+        "cdMax": 10,
+        "castTimeMax": 0,
+        "random": {
+            "regenPercentage": [
+                4,
+                10
+            ]
+        },
         "statType": [
             "int"
         ],
@@ -282,18 +290,18 @@
         "manaReserve": {
             "percentage": 0.25
         },
-        "cdMax": 10,
-        "castTimeMax": 0,
         "auraRange": 9,
-        "effect": "regenMana",
-        "random": {
-            "regenPercentage": [
-                4,
-                10
-            ]
-        }
+        "effect": "regenMana"
     },
     "swiftness": {
+        "cdMax": 10,
+        "castTimeMax": 0,
+        "random": {
+            "chance": [
+                8,
+                20
+            ]
+        },
         "statType": [
             "dex"
         ],
@@ -301,16 +309,8 @@
         "manaReserve": {
             "percentage": 0.4
         },
-        "cdMax": 10,
-        "castTimeMax": 0,
         "auraRange": 9,
-        "effect": "swiftness",
-        "random": {
-            "chance": [
-                8,
-                20
-            ]
-        }
+        "effect": "swiftness"
     },
     "harvest life": {
         "statType": [

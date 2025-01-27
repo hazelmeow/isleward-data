@@ -4,6 +4,53 @@ import type { Output } from ".";
 import { getSourceFile } from "../utils/files";
 import { astGrep, deepMerge } from "../utils/utils";
 
+const SLOT_NAMES = [
+  "head",
+  "neck",
+  "chest",
+  "hands",
+  "finger",
+  "waist",
+  "legs",
+  "feet",
+  "trinket",
+  "oneHanded",
+  "twoHanded",
+  "offHand",
+  "tool",
+] as const;
+const slotNamesSchema = z.enum(SLOT_NAMES);
+
+const rangeSchema = z.tuple([z.number(), z.number()]);
+const implicitStatSchema = z
+  .object({
+    stat: z.string(),
+    value: rangeSchema.optional(),
+    valueMult: z.number().optional(),
+    levelMult: z.number().optional(),
+  })
+  .strict();
+const itemTypeSchema = z
+  .object({
+    sprite: rangeSchema.optional(),
+    material: z.string().optional(),
+    implicitStat: implicitStatSchema.or(z.array(implicitStatSchema)).optional(),
+
+    attrRequire: z.string().or(z.array(z.string())).optional(),
+    spritesheet: z.string().optional(),
+    spellName: z.string().optional(),
+    spellConfig: z.unknown().optional(),
+    noDrop: z.boolean().optional(),
+    range: z.number().optional(),
+  })
+  .partial()
+  .strict();
+const itemTypesSchema = z.record(
+  slotNamesSchema,
+  z.record(z.string(), itemTypeSchema)
+);
+type ItemTypes = z.infer<typeof itemTypesSchema>;
+
 const armorMaterialsSchema = z.object({
   plate: z.object({
     armorMult: z.number(),
@@ -46,7 +93,7 @@ const getSlotArmorMult = async () => {
  *
  * Evals the constant item types since they have some constant math
  */
-const srcItemTypes = async () => {
+const srcItemTypes = async (): Promise<ItemTypes> => {
   const slotArmorMult = await getSlotArmorMult();
   const armorMaterials = await getArmorMaterials();
 
@@ -63,9 +110,9 @@ const srcItemTypes = async () => {
     `const clothArmorMult = ${armorMaterials.cloth.armorMult};`,
     `(` + objRaw + `)`,
   ];
-  const objEvaled = eval(lines.join("\n"));
+  const objEvaled = eval(lines.join("\n")) as unknown;
 
-  return objEvaled;
+  return itemTypesSchema.parse(objEvaled);
 };
 
 /**
@@ -73,7 +120,7 @@ const srcItemTypes = async () => {
  *
  * Evals the beforeGetItemTypes handler
  */
-const modNecromancerItemTypes = async () => {
+const modNecromancerItemTypes = async (): Promise<ItemTypes> => {
   const src = await getSourceFile(
     "repo:isleward-upstream/src/server/mods/class-necromancer/index.js"
   );
@@ -90,20 +137,23 @@ const modNecromancerItemTypes = async () => {
     `fbound(x)`,
     `x`,
   ];
-  const evaled = eval(lines.join("\n"));
+  const evaled = eval(lines.join("\n")) as unknown;
 
-  return evaled;
+  return itemTypesSchema.parse(evaled);
 };
 
 export default {
-  key: "itemTypes.json",
+  key: "itemTypes",
+  schema: itemTypesSchema,
   get: async () => {
     const itemTypes = await Promise.all([
       srcItemTypes(),
       modNecromancerItemTypes(),
     ]);
-
     const merged = deepMerge(...itemTypes);
-    return JSON.stringify(merged, null, 4);
+    return merged;
   },
-} satisfies Output;
+  print: (val) => {
+    return JSON.stringify(val, null, 4);
+  },
+} satisfies Output<ItemTypes>;

@@ -83,12 +83,16 @@ export const getSourceFile = async (source: string) => {
   }
 };
 
-export const getOutputPath = (output: Output) => {
-  return `./generated/${output.key}`;
+export const getOutputPath = <T>(output: Output<T>) => {
+  return `./generated/${output.key}.json`;
 };
 
-export const generateOutput = async (output: Output) => {
+export const generateOutput = async <T>(output: Output<T>) => {
   const outputPath = getOutputPath(output);
-  const contents = await output.get();
-  await fs.writeFile(outputPath, contents, { encoding: "utf-8" });
+
+  const value = await output.get();
+  output.schema.parse(value);
+
+  const printed = output.print(value);
+  await fs.writeFile(outputPath, printed, { encoding: "utf-8" });
 };
