@@ -1,0 +1,1110 @@
+{
+    "melee": {
+        "type": "melee",
+        "random": {
+            "damage": [
+                3,
+                11.4
+            ]
+        },
+        "cdMax": 10,
+        "manaCost": 0,
+        "threatMult": 1,
+        "castTimeMax": 0,
+        "range": 1,
+        "isAttack": true,
+        "row": 1,
+        "col": 4,
+        "name": "Melee",
+        "description": "Performs a quick melee attack.",
+        "icon": [
+            7,
+            0
+        ],
+        "auto": true,
+        "useWeaponRange": true
+    },
+    "projectile": {
+        "type": "projectile",
+        "random": {
+            "damage": [
+                2,
+                7.2
+            ]
+        },
+        "cdMax": 10,
+        "manaCost": 0,
+        "threatMult": 1,
+        "castTimeMax": 0,
+        "range": 9,
+        "needLos": true,
+        "row": 11,
+        "col": 4,
+        "speed": 110,
+        "name": "Projectile",
+        "description": "Performs a basic magical attack.",
+        "icon": [
+            7,
+            1
+        ],
+        "animation": "hitStaff",
+        "particles": {
+            "color": {
+                "start": [
+                    "ffeb38",
+                    "ff6942"
+                ],
+                "end": [
+                    "ff6942",
+                    "d43346"
+                ]
+            },
+            "scale": {
+                "start": {
+                    "min": 2,
+                    "max": 14
+                },
+                "end": {
+                    "min": 0,
+                    "max": 8
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 1
+            },
+            "alpha": {
+                "start": 0.5,
+                "end": 0
+            },
+            "randomScale": true,
+            "randomColor": true,
+            "chance": 0.25
+        },
+        "auto": true
+    },
+    "magic missile": {
+        "type": "projectile",
+        "random": {
+            "damage": [
+                4,
+                74
+            ]
+        },
+        "cdMax": 7,
+        "manaCost": 5,
+        "threatMult": 1,
+        "castTimeMax": 6,
+        "range": 9,
+        "needLos": true,
+        "row": 3,
+        "col": 0,
+        "speed": 150,
+        "name": "Magic Missile",
+        "description": "Launches an orb of unfocused energy at your target.",
+        "icon": [
+            1,
+            0
+        ],
+        "animation": "hitStaff",
+        "particles": {
+            "color": {
+                "start": [
+                    "7a3ad3",
+                    "3fa7dd"
+                ],
+                "end": [
+                    "3fa7dd",
+                    "7a3ad3"
+                ]
+            },
+            "scale": {
+                "start": {
+                    "min": 2,
+                    "max": 14
+                },
+                "end": {
+                    "min": 0,
+                    "max": 8
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 3
+            },
+            "alpha": {
+                "start": 0.7,
+                "end": 0
+            },
+            "randomScale": true,
+            "randomColor": true,
+            "chance": 0.6
+        },
+        "element": "arcane",
+        "statType": "int"
+    },
+    "ice spear": {
+        "type": "iceSpear",
+        "random": {
+            "damage": [
+                2,
+                47
+            ],
+            "i_freezeDuration": [
+                6,
+                10
+            ]
+        },
+        "cdMax": 10,
+        "manaCost": 4,
+        "threatMult": 1,
+        "castTimeMax": 2,
+        "range": 9,
+        "needLos": true,
+        "speed": 70,
+        "name": "Ice Spear",
+        "description": "A jagged projectile of pure ice pierces your target and slows his movement.",
+        "icon": [
+            1,
+            1
+        ],
+        "animation": "hitStaff",
+        "particles": {
+            "color": {
+                "start": [
+                    "51fc9a",
+                    "48edff"
+                ],
+                "end": [
+                    "48edff",
+                    "44cb95"
+                ]
+            },
+            "scale": {
+                "start": {
+                    "min": 2,
+                    "max": 12
+                },
+                "end": {
+                    "min": 0,
+                    "max": 6
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 2
+            },
+            "alpha": {
+                "start": 0.8,
+                "end": 0
+            },
+            "randomScale": true,
+            "randomColor": true,
+            "frequency": 0.2
+        },
+        "element": "frost",
+        "statType": "int"
+    },
+    "fireblast": {
+        "type": "fireblast",
+        "random": {
+            "damage": [
+                2,
+                35
+            ],
+            "i_radius": [
+                1,
+                2.2
+            ],
+            "i_pushback": [
+                2,
+                5
+            ]
+        },
+        "cdMax": 4,
+        "manaCost": 5,
+        "threatMult": 1,
+        "castTimeMax": 2,
+        "radius": 2,
+        "targetGround": true,
+        "targetPlayerPos": true,
+        "name": "Fireblast",
+        "description": "Unleashes a blast of fire that damages and pushes back nearby foes.",
+        "icon": [
+            1,
+            2
+        ],
+        "animation": "raiseStaff",
+        "particles": {
+            "color": {
+                "start": [
+                    "d43346",
+                    "faac45"
+                ],
+                "end": [
+                    "c0c3cf",
+                    "929398"
+                ]
+            },
+            "scale": {
+                "start": {
+                    "min": 4,
+                    "max": 24
+                },
+                "end": {
+                    "min": 0,
+                    "max": 12
+                }
+            },
+            "frequency": 0.02,
+            "emitterLifetime": 0.15,
+            "spawnType": "circle",
+            "lifetime": {
+                "min": 1,
+                "max": 2
+            },
+            "spawnCircle": {
+                "x": 0,
+                "y": 0,
+                "r": 8
+            },
+            "speed": {
+                "start": {
+                    "min": 4,
+                    "max": 24
+                },
+                "end": {
+                    "min": 0,
+                    "max": 12
+                }
+            },
+            "randomSpeed": true,
+            "randomScale": true,
+            "randomColor": true
+        },
+        "element": "fire",
+        "statType": "int"
+    },
+    "smite": {
+        "type": "smite",
+        "random": {
+            "damage": [
+                4,
+                35
+            ],
+            "i_stunDuration": [
+                6,
+                10
+            ]
+        },
+        "cdMax": 6,
+        "manaCost": 7,
+        "threatMult": 1,
+        "castTimeMax": 3,
+        "range": 9,
+        "row": 2,
+        "col": 0,
+        "name": "Smite",
+        "description": "Calls down holy energy from the heavens upon your foe.",
+        "icon": [
+            0,
+            0
+        ],
+        "animation": "hitStaff",
+        "element": "holy",
+        "statType": "int"
+    },
+    "consecrate": {
+        "type": "healingCircle",
+        "random": {
+            "healing": [
+                0.3,
+                0.53
+            ],
+            "i_duration": [
+                7,
+                12
+            ]
+        },
+        "cdMax": 15,
+        "manaCost": 12,
+        "threatMult": 1,
+        "castTimeMax": 4,
+        "range": 9,
+        "needLos": true,
+        "targetGround": true,
+        "name": "Consecrate",
+        "description": "Creates a circle of pure holy energy that heals allies for a brief period.",
+        "icon": [
+            0,
+            1
+        ],
+        "animation": "raiseStaff",
+        "particles": {
+            "scale": {
+                "start": {
+                    "min": 6,
+                    "max": 16
+                },
+                "end": {
+                    "min": 0,
+                    "max": 4
+                }
+            },
+            "speed": {
+                "start": {
+                    "min": 2,
+                    "max": 12
+                },
+                "end": {
+                    "min": 0,
+                    "max": 4
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 3
+            },
+            "alpha": {
+                "start": 0.45,
+                "end": 0
+            },
+            "color": {
+                "start": [
+                    "ffeb38",
+                    "fcfcfc"
+                ],
+                "end": [
+                    "fcfcfc",
+                    "faac45"
+                ]
+            },
+            "spawnType": "circle",
+            "spawnCircle": {
+                "x": 0,
+                "y": 0,
+                "r": 12
+            },
+            "randomScale": true,
+            "randomColor": true,
+            "randomSpeed": true,
+            "chance": 0.02
+        },
+        "element": "holy",
+        "statType": "int",
+        "radius": 3
+    },
+    "healing touch": {
+        "type": "singleTargetHeal",
+        "random": {
+            "healing": [
+                1,
+                3.5
+            ]
+        },
+        "cdMax": 6,
+        "manaCost": 8,
+        "threatMult": 1,
+        "castTimeMax": 4,
+        "spellType": "heal",
+        "range": 9,
+        "needLos": true,
+        "targetFriendly": true,
+        "name": "Healing Touch",
+        "description": "Restore health to a friendly target.",
+        "icon": [
+            0,
+            3
+        ],
+        "animation": "raiseStaff",
+        "particles": {
+            "scale": {
+                "start": {
+                    "min": 6,
+                    "max": 16
+                },
+                "end": {
+                    "min": 0,
+                    "max": 4
+                }
+            },
+            "speed": {
+                "start": {
+                    "min": 2,
+                    "max": 12
+                },
+                "end": {
+                    "min": 0,
+                    "max": 4
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 3
+            },
+            "alpha": {
+                "start": 0.45,
+                "end": 0
+            },
+            "color": {
+                "start": [
+                    "ffeb38",
+                    "fcfcfc"
+                ],
+                "end": [
+                    "fcfcfc",
+                    "faac45"
+                ]
+            },
+            "spawnType": "circle",
+            "spawnCircle": {
+                "x": 0,
+                "y": 0,
+                "r": 12
+            },
+            "randomScale": true,
+            "randomColor": true,
+            "randomSpeed": true,
+            "chance": 0.02
+        },
+        "element": "holy",
+        "statType": "int"
+    },
+    "slash": {
+        "type": "slash",
+        "random": {
+            "damage": [
+                1,
+                57
+            ]
+        },
+        "cdMax": 9,
+        "manaCost": 4,
+        "threatMult": 4,
+        "castTimeMax": 1,
+        "range": 1,
+        "isAttack": true,
+        "row": 0,
+        "col": 0,
+        "name": "Slash",
+        "description": "Performs a melee attack with your equipped weapon.",
+        "icon": [
+            3,
+            0
+        ],
+        "animation": "hitSword",
+        "statType": "str",
+        "useWeaponRange": true
+    },
+    "charge": {
+        "type": "charge",
+        "random": {
+            "damage": [
+                2,
+                30
+            ],
+            "i_stunDuration": [
+                6,
+                10
+            ]
+        },
+        "cdMax": 14,
+        "manaCost": 3,
+        "threatMult": 3,
+        "castTimeMax": 1,
+        "range": 10,
+        "isAttack": true,
+        "needLos": true,
+        "speed": 70,
+        "name": "Charge",
+        "description": "Charges at a foe, dealing damage and stunning them for a short period.",
+        "icon": [
+            3,
+            1
+        ],
+        "animation": "raiseShield",
+        "statType": "str"
+    },
+    "flurry": {
+        "type": "flurry",
+        "random": {
+            "i_duration": [
+                10,
+                20
+            ],
+            "i_chance": [
+                30,
+                60
+            ]
+        },
+        "cdMax": 20,
+        "manaCost": 10,
+        "threatMult": 1,
+        "castTimeMax": 0,
+        "range": 9,
+        "isAttack": true,
+        "row": 1,
+        "col": 0,
+        "speed": 150,
+        "name": "Flurry",
+        "description": "Grants a stack of frenzy, greatly inreasing your attack speed.",
+        "icon": [
+            2,
+            3
+        ],
+        "animation": "hitSword",
+        "statType": "dex"
+    },
+    "whirlwind": {
+        "type": "whirlwind",
+        "random": {
+            "i_range": [
+                1,
+                2.5
+            ],
+            "damage": [
+                4,
+                59
+            ]
+        },
+        "cdMax": 12,
+        "manaCost": 7,
+        "threatMult": 6,
+        "castTimeMax": 2,
+        "range": 1,
+        "isAttack": true,
+        "targetGround": true,
+        "targetPlayerPos": true,
+        "row": 5,
+        "col": 0,
+        "frames": 3,
+        "name": "Whirlwind",
+        "description": "You furiously spin in a circle, striking all foes around you.",
+        "icon": [
+            5,
+            0
+        ],
+        "statType": "str"
+    },
+    "smokebomb": {
+        "type": "smokeBomb",
+        "random": {
+            "damage": [
+                0.25,
+                4.4
+            ],
+            "i_radius": [
+                1,
+                3
+            ],
+            "i_duration": [
+                7,
+                13
+            ]
+        },
+        "cdMax": 7,
+        "manaCost": 6,
+        "threatMult": 1,
+        "castTimeMax": 0,
+        "radius": 1,
+        "isAttack": true,
+        "targetGround": true,
+        "targetPlayerPos": true,
+        "name": "Smokebomb",
+        "description": "Envelops the caster in a cloud of poisonous smoke, dealing damage to enemies every tick until it dissipates.",
+        "icon": [
+            2,
+            1
+        ],
+        "animation": "raiseHands",
+        "particles": {
+            "scale": {
+                "start": {
+                    "min": 16,
+                    "max": 30
+                },
+                "end": {
+                    "min": 8,
+                    "max": 14
+                }
+            },
+            "opacity": {
+                "start": 0.02,
+                "end": 0
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 3
+            },
+            "speed": {
+                "start": 12,
+                "end": 2
+            },
+            "color": {
+                "start": [
+                    "fcfcfc",
+                    "80f643"
+                ],
+                "end": [
+                    "c0c3cf",
+                    "2b4b3e"
+                ]
+            },
+            "chance": 0.03,
+            "randomColor": true,
+            "randomScale": true,
+            "blendMode": "screen"
+        },
+        "element": "poison",
+        "statType": "dex"
+    },
+    "ambush": {
+        "type": "ambush",
+        "random": {
+            "damage": [
+                8,
+                79
+            ],
+            "i_stunDuration": [
+                4,
+                7
+            ]
+        },
+        "cdMax": 15,
+        "manaCost": 7,
+        "threatMult": 1,
+        "castTimeMax": 3,
+        "range": 10,
+        "isAttack": true,
+        "needLos": true,
+        "speed": 70,
+        "name": "Ambush",
+        "description": "Step into the shadows and reappear behind your target before delivering a concussing blow.",
+        "icon": [
+            2,
+            4
+        ],
+        "animation": "raiseShield",
+        "statType": "dex"
+    },
+    "crystal spikes": {
+        "type": "warnBlast",
+        "random": {
+            "damage": [
+                3,
+                66
+            ],
+            "i_delay": [
+                1,
+                4
+            ]
+        },
+        "cdMax": 15,
+        "manaCost": 14,
+        "threatMult": 1,
+        "castTimeMax": 0,
+        "statType": [
+            "dex",
+            "int"
+        ],
+        "range": 9,
+        "radius": 1,
+        "needLos": true,
+        "targetGround": true,
+        "row": null,
+        "col": 4,
+        "name": "Crystal Spikes",
+        "description": "Jagged crystals break through the ground at your target destination",
+        "icon": [
+            0,
+            7
+        ],
+        "animation": "raiseHands",
+        "particles": {
+            "color": {
+                "start": [
+                    "c0c3cf",
+                    "929398"
+                ],
+                "end": [
+                    "929398",
+                    "c0c3cf"
+                ]
+            },
+            "scale": {
+                "start": {
+                    "min": 4,
+                    "max": 10
+                },
+                "end": {
+                    "min": 0,
+                    "max": 4
+                }
+            },
+            "speed": {
+                "start": {
+                    "min": 2,
+                    "max": 16
+                },
+                "end": {
+                    "min": 0,
+                    "max": 8
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 1
+            },
+            "spawnType": "circle",
+            "spawnCircle": {
+                "x": 0,
+                "y": 0,
+                "r": 12
+            },
+            "randomScale": true,
+            "randomSpeed": true,
+            "chance": 0.075,
+            "randomColor": true
+        },
+        "isAttack": true,
+        "negativeStats": [
+            "i_delay"
+        ]
+    },
+    "innervation": {
+        "type": "aura",
+        "random": {
+            "regenPercentage": [
+                0.2,
+                0.8
+            ]
+        },
+        "cdMax": 10,
+        "manaCost": 0,
+        "threatMult": 1,
+        "castTimeMax": 0,
+        "spellType": "aura",
+        "name": "Innervation",
+        "description": "Grants an aura that regenerates hp for you and your allies.",
+        "icon": [
+            3,
+            3
+        ],
+        "statType": [
+            "str"
+        ],
+        "manaReserve": {
+            "percentage": 0.25
+        },
+        "auraRange": 9,
+        "effect": "regenHp"
+    },
+    "tranquility": {
+        "type": "aura",
+        "random": {
+            "regenPercentage": [
+                4,
+                10
+            ]
+        },
+        "cdMax": 10,
+        "manaCost": 0,
+        "threatMult": 1,
+        "castTimeMax": 0,
+        "spellType": "aura",
+        "name": "Tranquility",
+        "description": "Grants an aura that regenerates mana for you and your allies.",
+        "icon": [
+            3,
+            4
+        ],
+        "element": "holy",
+        "statType": [
+            "int"
+        ],
+        "manaReserve": {
+            "percentage": 0.25
+        },
+        "auraRange": 9,
+        "effect": "regenMana"
+    },
+    "swiftness": {
+        "type": "aura",
+        "random": {
+            "chance": [
+                8,
+                20
+            ]
+        },
+        "cdMax": 10,
+        "manaCost": 0,
+        "threatMult": 1,
+        "castTimeMax": 0,
+        "spellType": "aura",
+        "name": "Swiftness",
+        "description": "Grants an aura that grants increased movement speed to you and your allies.",
+        "icon": [
+            3,
+            5
+        ],
+        "element": "fire",
+        "statType": [
+            "dex"
+        ],
+        "manaReserve": {
+            "percentage": 0.4
+        },
+        "auraRange": 9,
+        "effect": "swiftness"
+    },
+    "roll": {
+        "type": "roll",
+        "random": {
+            "i_maxDistance": [
+                5,
+                9
+            ]
+        },
+        "cdMax": 10,
+        "manaCost": 6,
+        "threatMult": 1,
+        "castTimeMax": 0
+    },
+    "barbed chain": {
+        "type": "barbedChain",
+        "random": {
+            "i_damage": [
+                4,
+                14
+            ],
+            "i_stunDuration": [
+                2,
+                8
+            ]
+        },
+        "cdMax": 9,
+        "manaCost": 4,
+        "threatMult": 1,
+        "castTimeMax": 2,
+        "range": 9,
+        "isAttack": true
+    },
+    "taunt": {
+        "type": "taunt",
+        "random": {
+            "i_tauntDuration": [
+                5,
+                20
+            ]
+        },
+        "cdMax": 12,
+        "manaCost": 3,
+        "threatMult": 1,
+        "castTimeMax": 1,
+        "range": 9
+    },
+    "harvest life": {
+        "type": "harvestLife",
+        "random": {
+            "damage": [
+                4,
+                14
+            ],
+            "healPercent": [
+                2,
+                15
+            ]
+        },
+        "cdMax": 10,
+        "manaCost": 5,
+        "threatMult": 1,
+        "castTimeMax": 3,
+        "range": 1,
+        "row": 1,
+        "col": 4,
+        "name": "Harvest Life",
+        "description": "Absorbs the life-force of your enemies.",
+        "icon": [
+            0,
+            0
+        ],
+        "spritesheet": "server/mods/class-necromancer/images/abilityIcons.png",
+        "animation": "melee",
+        "particles": {
+            "color": {
+                "start": [
+                    "ff4252",
+                    "b34b3a"
+                ],
+                "end": [
+                    "b34b3a",
+                    "ff4252"
+                ]
+            },
+            "scale": {
+                "start": {
+                    "min": 2,
+                    "max": 14
+                },
+                "end": {
+                    "min": 0,
+                    "max": 8
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 3
+            },
+            "alpha": {
+                "start": 0.7,
+                "end": 0
+            },
+            "randomScale": true,
+            "randomColor": true,
+            "chance": 0.6
+        },
+        "statType": [
+            "str",
+            "int"
+        ],
+        "isAttack": true
+    },
+    "summon skeleton": {
+        "type": "summonSkeleton",
+        "random": {
+            "damagePercent": [
+                20,
+                76
+            ],
+            "hpPercent": [
+                40,
+                60
+            ]
+        },
+        "cdMax": 6,
+        "manaCost": 5,
+        "threatMult": 1,
+        "castTimeMax": 6,
+        "range": 9,
+        "needLos": true,
+        "targetGround": true,
+        "name": "Summon Skeleton",
+        "description": "Summons a skeletal warrior to assist you in combat.",
+        "icon": [
+            1,
+            0
+        ],
+        "spritesheet": "server/mods/class-necromancer/images/abilityIcons.png",
+        "animation": "magic",
+        "particles": {
+            "color": {
+                "start": [
+                    "ff4252",
+                    "b34b3a"
+                ],
+                "end": [
+                    "b34b3a",
+                    "ff4252"
+                ]
+            },
+            "scale": {
+                "start": {
+                    "min": 2,
+                    "max": 14
+                },
+                "end": {
+                    "min": 0,
+                    "max": 8
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 3
+            },
+            "alpha": {
+                "start": 0.7,
+                "end": 0
+            },
+            "randomScale": true,
+            "randomColor": true,
+            "chance": 0.6
+        },
+        "statType": [
+            "str",
+            "int"
+        ]
+    },
+    "blood barrier": {
+        "type": "bloodBarrier",
+        "random": {
+            "i_drainPercentage": [
+                10,
+                50
+            ],
+            "shieldMultiplier": [
+                2,
+                5
+            ],
+            "i_frenzyDuration": [
+                5,
+                15
+            ]
+        },
+        "cdMax": 13,
+        "manaCost": 5,
+        "threatMult": 1,
+        "castTimeMax": 3,
+        "range": 9,
+        "needLos": true,
+        "targetFriendly": true,
+        "row": 3,
+        "col": 0,
+        "speed": 150,
+        "spellType": "buff",
+        "name": "Blood Barrier",
+        "description": "Sacrifice some life force to grant an ally a protective barrier and increased attack speed.",
+        "icon": [
+            2,
+            0
+        ],
+        "spritesheet": "server/mods/class-necromancer/images/abilityIcons.png",
+        "animation": "magic",
+        "particles": {
+            "color": {
+                "start": [
+                    "ff4252",
+                    "b34b3a"
+                ],
+                "end": [
+                    "b34b3a",
+                    "ff4252"
+                ]
+            },
+            "scale": {
+                "start": {
+                    "min": 2,
+                    "max": 14
+                },
+                "end": {
+                    "min": 0,
+                    "max": 8
+                }
+            },
+            "lifetime": {
+                "min": 1,
+                "max": 3
+            },
+            "alpha": {
+                "start": 0.7,
+                "end": 0
+            },
+            "randomScale": true,
+            "randomColor": true,
+            "chance": 0.6
+        },
+        "statType": [
+            "str",
+            "int"
+        ]
+    }
+}

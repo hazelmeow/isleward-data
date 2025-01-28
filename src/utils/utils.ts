@@ -11,6 +11,18 @@ export const astGrep = async (src: string, pattern: string) => {
   assert(val, `astGrep failed for "${pattern}"`);
   return val;
 };
+export const astGrepNullifyFunctions = async (src: string, pattern: string) => {
+  const ast = await parseAsync(Lang.JavaScript, src);
+  const root = ast.root();
+  const targetNode = root.find(pattern);
+  assert(targetNode, `astGrep failed for "${pattern}"`);
+
+  const nodes = targetNode.findAll("function ($$$) { $$$ }");
+  const edits = nodes.map((node) => node.replace("null"));
+
+  const edited = root.commitEdits(edits);
+  return astGrep(edited, pattern);
+};
 
 export const convertJson5ToJson = (src: string) => {
   return JSON.stringify(JSON5.parse(src), null, 4);
