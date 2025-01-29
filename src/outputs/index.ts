@@ -1,4 +1,5 @@
 import type { z } from "zod";
+import balanceConfig from "./balanceConfig";
 import baseStats from "./baseStats";
 import itemTypes from "./itemTypes";
 import passiveTree from "./passiveTree";
@@ -8,6 +9,7 @@ import statRanges from "./statRanges";
 import statScales from "./statScales";
 
 export const OUTPUTS: Output<any>[] = [
+  balanceConfig,
   baseStats,
   itemTypes,
   passiveTree,
