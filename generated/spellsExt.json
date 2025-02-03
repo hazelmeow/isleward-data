@@ -290,7 +290,7 @@
         "random": {
             "damage": [
                 4,
-                35
+                31
             ],
             "i_stunDuration": [
                 6,
@@ -501,7 +501,7 @@
         "random": {
             "damage": [
                 2,
-                30
+                22
             ],
             "i_stunDuration": [
                 6,
@@ -973,12 +973,12 @@
         "type": "summonSkeleton",
         "random": {
             "damagePercent": [
-                20,
-                76
+                40,
+                400
             ],
             "hpPercent": [
                 40,
-                60
+                70
             ]
         },
         "cdMax": 6,
