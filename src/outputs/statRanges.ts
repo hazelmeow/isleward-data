@@ -156,6 +156,7 @@ const getRandomCode = async () => {
   const src = await getSourceFile(
     "repo:isleward-upstream/src/server/misc/random.js"
   );
+  // TODO: this is brittle. something to do with encodings or line endings?
   assert(
     sha256sum(src) ===
       "3985f1718a7504b120a3c1cc20e6351b3836a4de47b2af056fe3915bcc268f3b",
